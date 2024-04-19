@@ -24,8 +24,14 @@ if (pinAnswer.pin === myPin) {
                 message: "Enter your amount",
                 type: "number",
             }]);
-        myBalance -= amountAns.amount;
-        console.log("your remaining balance is:" + myBalance);
+        if (amountAns.amount >= myBalance) {
+            console.log("you have unsufficiant balance");
+            console.log(`you can not withdraw more than ${myBalance}`);
+        }
+        else {
+            myBalance -= amountAns.amount;
+            console.log(`your remaining balance is ${myBalance}`);
+        }
     }
     else if (operationAns.operation === "check Your Balance") {
         console.log(`your balance is ${myBalance}`);
